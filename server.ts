@@ -15,7 +15,7 @@ function broadcast(message: unknown, except?: string) {
   }
 }
 
-Deno.serve((request) => {
+Deno.serve(async (request) => {
   const { pathname } = new URL(request.url);
 
   // Static file serving
@@ -31,24 +31,28 @@ Deno.serve((request) => {
     });
   }
 
-  if(pathname === "/MiniCharacter.png"){
-    return new Response(Deno.readFile("./public/MiniCharacter.png"), {
+  if (pathname === "/MiniCharacter.png") {
+    const image = await Deno.readFile("./public/MiniCharacter.png");
+    return new Response(image, {
       headers: { "content-type": "image/png" },
     });
   }
 
-  if(pathname === "/MiniCharacter2.png"){
-    return new Response(Deno.readFile("./public/MiniCharacter2.png"), {
+
+  if (pathname === "/MiniCharacter2.png") {
+    const image = await Deno.readFile("./public/MiniCharacter2.png");
+    return new Response(image, {
       headers: { "content-type": "image/png" },
     });
   }
+
 
   // WebSocket for game
   if (pathname === "/ws") {
     if (request.headers.get("upgrade") !== "websocket") {
       return new Response(null, { status: 501 });
     }
-    
+
     const { socket, response } = Deno.upgradeWebSocket(request);
     const id = crypto.randomUUID();
 
