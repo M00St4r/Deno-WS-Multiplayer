@@ -12,11 +12,14 @@ const socket = new WebSocket(`${protocol}//${location.host}/ws`);
 let myId: string | null = null;
 let players: Record<string, Player> = {};
 
-const char: HTMLImageElement = document.createElement("img");
-const char2: HTMLImageElement = document.createElement("img");
+const char: HTMLImageElement = new Image();
+const char2: HTMLImageElement = new Image();
 
 char.src = "/MiniCharacter.png";
 char2.src = "/MiniCharacter2.png";
+
+let charLoaded: boolean = false;
+let char2Loaded: boolean = false;
 
 socket.addEventListener("message", (event: MessageEvent) => {
   const msg = JSON.parse(event.data);
@@ -60,9 +63,9 @@ function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (const id in players) {
     const p = players[id];
-    if (id === myId){
+    if (id === myId && charLoaded){
       ctx.drawImage(char, p.x, p.y, 50, 50);
-    } else {
+    } else if  (id != myId && char2Loaded) {
       ctx.drawImage(char2, p.x, p.y, 50, 50);
     }
     //ctx.fillStyle = id === myId ? "blue" : "red";
@@ -71,3 +74,11 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 gameLoop();
+
+char.onload = function() {
+  charLoaded = true;
+};
+
+char2.onload = function() {
+  char2Loaded = true;
+};
