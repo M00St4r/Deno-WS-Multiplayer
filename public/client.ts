@@ -12,8 +12,8 @@ const socket = new WebSocket(`${protocol}//${location.host}/ws`);
 let myId: string | null = null;
 let players: Record<string, Player> = {};
 
-const char: HTMLImageElement = new HTMLImageElement;
-const char2: HTMLImageElement = new HTMLImageElement;
+const char: HTMLImageElement = document.createElement("img");
+const char2: HTMLImageElement = document.createElement("img");
 
 char.src = "/MiniCharacter.png";
 char2.src = "/MiniCharacter2.png";

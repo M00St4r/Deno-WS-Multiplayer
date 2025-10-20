@@ -5,8 +5,8 @@ const protocol = location.protocol === "https:" ? "wss:" : "ws:";
 const socket = new WebSocket(`${protocol}//${location.host}/ws`);
 let myId = null;
 let players = {};
-const char = new HTMLImageElement;
-const char2 = new HTMLImageElement;
+const char = document.createElement("img");
+const char2 = document.createElement("img");
 char.src = "/MiniCharacter.png";
 char2.src = "/MiniCharacter2.png";
 socket.addEventListener("message", (event) => {
