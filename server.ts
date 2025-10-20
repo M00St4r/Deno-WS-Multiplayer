@@ -31,6 +31,18 @@ Deno.serve((request) => {
     });
   }
 
+  if(pathname === "/MiniCharacter.png"){
+    return new Response(Deno.readFile("./public/MiniCharacter.png"), {
+      headers: { "content-type": "image/png" },
+    });
+  }
+
+  if(pathname === "/MiniCharacter2.png"){
+    return new Response(Deno.readFile("./public/MiniCharacter2.png"), {
+      headers: { "content-type": "image/png" },
+    });
+  }
+
   // WebSocket for game
   if (pathname === "/ws") {
     if (request.headers.get("upgrade") !== "websocket") {
