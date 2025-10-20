@@ -63,9 +63,9 @@ function gameLoop() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   for (const id in players) {
     const p = players[id];
-    if (id === myId && charLoaded){
+    if (id === myId){
       ctx.drawImage(char, p.x, p.y, 50, 50);
-    } else if  (id != myId && char2Loaded) {
+    } else if  (id != myId) {
       ctx.drawImage(char2, p.x, p.y, 50, 50);
     }
     //ctx.fillStyle = id === myId ? "blue" : "red";
