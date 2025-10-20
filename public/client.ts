@@ -73,12 +73,8 @@ function gameLoop() {
   }
   requestAnimationFrame(gameLoop);
 }
-gameLoop();
 
-char.onload = function() {
-  charLoaded = true;
-};
-
-char2.onload = function() {
-  char2Loaded = true;
-};
+window.onload = function () {
+  gameLoop();
+  //
+}
