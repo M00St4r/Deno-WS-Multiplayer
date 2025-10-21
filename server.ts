@@ -46,10 +46,10 @@ Deno.serve(async (request) => {
     });
   }
 
-  if (pathname === "/Monkey.png") {
-    const image = await Deno.readFile("./public/Monkey.png");
+  if (pathname === "/water.gif") {
+    const image = await Deno.readFile("./public/water.gif");
     return new Response(image, {
-      headers: { "content-type": "image/png" },
+      headers: { "content-type": "image/gif" },
     });
   }
 
