@@ -6,6 +6,7 @@
     background-color: #248277;
     color: var(--text-color);
     font-family: "Lucida Console", "Courier New", monospace;
+    overflow: hidden;
 }
 
 button{
