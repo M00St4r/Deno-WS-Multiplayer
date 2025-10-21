@@ -51,8 +51,8 @@ Deno.serve(async (request) => {
     });
   }
 
-  if (pathname === "/WhiteNoiseTransparent.png") {
-    const image = await Deno.readFile("./public/WhiteNoiseTransparent.png");
+  if (pathname === "/WhiteNoiseTransparent4.png") {
+    const image = await Deno.readFile("./public/WhiteNoiseTransparent4.png");
     return new Response(image, {
       headers: { "content-type": "image/png" },
     });
