@@ -46,6 +46,13 @@ Deno.serve(async (request) => {
     });
   }
 
+  if (pathname === "/Monkey.png") {
+    const image = await Deno.readFile("./public/Monkey.png");
+    return new Response(image, {
+      headers: { "content-type": "image/png" },
+    });
+  }
+
 
   // WebSocket for game
   if (pathname === "/ws") {
