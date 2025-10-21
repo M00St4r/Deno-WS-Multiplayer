@@ -1,14 +1,30 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Deno Multiplayer</title>
   <script src="client.js" defer></script>
   <style>
-    canvas { border: 1px solid black; background: #eee; }
+    img {
+      position: absolute;
+      z-index: -1;
+      left: 0px;
+      top: 10%;
+    }
+
+    canvas {
+      position: absolute;
+      z-index: 0;
+      left: 0px;
+      top: 10%;
+      border: 1px solid black;
+      background: #eeeeee00;
+    }
   </style>
 </head>
+
 <body>
   <h1 id="controls">Controlls
     <button id="left">&#8592;</button>
@@ -16,6 +32,9 @@
     <button id="up">&#8593;</button>
     <button id="down">&#8595;</button>
   </h1>
+  <img src="Monkey.png" alt="monkey" width="600" height="400">
   <canvas id="game" width="600" height="400"></canvas>
+
 </body>
+
 </html>
