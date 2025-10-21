@@ -44,9 +44,15 @@ Deno.serve(async (request) => {
     });
   }
 
-
   if (pathname === "/MiniCharacter2.png") {
     const image = await Deno.readFile("./public/MiniCharacter2.png");
+    return new Response(image, {
+      headers: { "content-type": "image/png" },
+    });
+  }
+
+  if (pathname === "/WhiteNoiseTransparent.png") {
+    const image = await Deno.readFile("./public/WhiteNoiseTransparent.png");
     return new Response(image, {
       headers: { "content-type": "image/png" },
     });

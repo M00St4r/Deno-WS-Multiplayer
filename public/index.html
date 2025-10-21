@@ -8,7 +8,7 @@
   <script src="client.js" defer></script>
   <link rel='stylesheet' type='text/css' media='screen' href='stylesheet.css'>
   <style>
-    img {
+    #water {
       position: absolute;
       z-index: -1;
       left: 0px;
@@ -23,6 +23,13 @@
       border: 0;
       background: #eeeeee00;
     }
+
+    #overlay{
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 100;
+    }
   </style>
 </head>
 
@@ -33,9 +40,9 @@
     <button id="up">&#8593;</button>
     <button id="down">&#8595;</button>
   </h1>
-  <img src="water.gif" alt="water" width="600" height="400">
+  <img id="water" src="water.gif" alt="water" width="600" height="400">
   <canvas id="game" width="600" height="400"></canvas>
-
+  <img src="WhiteNoiseTransparent.png" alt="overlay" width="100%" height="auto">
 </body>
 
 </html>

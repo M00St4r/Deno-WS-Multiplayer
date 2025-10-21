@@ -76,5 +76,4 @@ function gameLoop() {
 
 window.onload = function () {
   gameLoop();
-  //
 }
